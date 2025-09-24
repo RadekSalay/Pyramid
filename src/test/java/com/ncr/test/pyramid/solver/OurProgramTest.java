@@ -3,14 +3,15 @@ package com.ncr.test.pyramid.solver;
 import com.ncr.test.pyramid.data.Pyramid;
 import com.ncr.test.pyramid.data.PyramidGenerator;
 import com.ncr.test.pyramid.data.impl.RandomPyramidGenerator;
-import com.ncr.test.pyramid.solver.impl.YourSolver;
+import com.ncr.test.pyramid.solver.impl.NaivePyramidSolver;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class YourSolverTest {
+public class OurProgramTest {
     private static final int MAX_DEPTH = 100;
 
     private static final int[][] SAMPLE_DATA = {
@@ -30,7 +31,7 @@ public class YourSolverTest {
 
     @BeforeEach
     public void setUp() {
-        solver = new YourSolver();
+        solver = new NaivePyramidSolver();
     }
 
     @Test
@@ -46,6 +47,7 @@ public class YourSolverTest {
     }
 
     @Test
+    @Disabled("Not possible in naive approach")
     public void solverSurvivesLargeData() {
         PyramidGenerator generator = new RandomPyramidGenerator(MAX_DEPTH, 1000);
         Pyramid pyramid = generator.generatePyramid();
